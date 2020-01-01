@@ -106,11 +106,20 @@ const Image = () => {
           }
         }
       }
+      damn: file(relativePath: { eq: "damn.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 720) {
+            ...GatsbyImageSharpFluid
+            presentationWidth
+          }
+        }
+      }
     }
   `)
 
   return (
     <div className="imageWrapper">
+      <Img fluid={data.damn.childImageSharp.fluid} />
       <Img fluid={data.angels.childImageSharp.fluid} />
       <Img fluid={data.anatomy.childImageSharp.fluid} />
       <Img fluid={data.avocado.childImageSharp.fluid} />
